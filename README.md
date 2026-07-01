@@ -44,13 +44,13 @@ snout-cli can either be executed from this directory, like so:
 target/release/snout-cli
 ```
 
-or snout-cli can be added to your $PATH and executed like so:
+or snout-cli can be added to your `$PATH` and executed like so:
 
 ```sh
 snout-cli
 ```
 
-These docs will assume that snout-cli is in your `$PATH`. If this is not the case, replace the command to run snout-cli, with the path to snout-cli. Like shown above.
+These docs will assume that snout-cli is in your `$PATH`. If this is not the case, replace `snout-cli` in the following commands with the path to snout-cli. Like shown above.
 
 Help on how to use the cli tool can be obtained with:
 
@@ -73,6 +73,7 @@ snout-cli track
 This will start recording, along with sending data to the OSC endpoint specified in the configuration file.
 
 ## Training an eye model
+
 Eye models can be trained with the following command:
 
 ```sh
