@@ -90,9 +90,9 @@ Wireless mjpeg cameras can be entered as a url, like so:
 camera = "http://192.168.178.162"
 ``` 
 
-## Rotating, flipping, and changing a cameras brightness
+## Rotating, mirroring, and changing a cameras brightness
 
-Changing the values for rotation and brightness, along with on wether or not the camera is flipped horizontally and vertically can be achieved through the `<Tracking Point>.transform` nodes. 
+Changing the values for rotation and brightness, along with wether or not the camera is mirrored horizontally and/or vertically, can be achieved through the `<Tracking Point>.transform` tables.
 
 For the face camera, this can be achieved like so:
 
@@ -104,13 +104,14 @@ vertical_flip = true # Mirrors camera vertically
 horizontal_flip = false 
 ```
 
-The brightness value is given as a percentage, where 1 is 100% (Original) brightness, and 0 is 0% brightness.
+The brightness value is given as a percentage, where a value of 1 is 100% brightness (Original), and 0 is 0% brightness (Pitch black).
+Values above 1 to increase the cameras brightness are allowed.
 
 The value for rotation is given in whole degrees. Realistically you should only need 90, 180, and 270.
 
 ## Cropping a camera
 
-Cropping a camera stream can be done through editing the values of the `<Tracking point>.crop` nodes. For the face, this can be done like so
+Cropping a camera stream can be done through editing the values of the `<Tracking point>.crop` tables. For the face, this can be done like so
 
 ```toml
 [face.crop]
