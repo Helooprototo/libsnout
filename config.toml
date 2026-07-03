@@ -1,6 +1,6 @@
 # --- ATTENTION ---
 #
-# Documentation on how to configure libsnout can be found under CONFIGURING.MouthDimpleLeft
+# Documentation on how to configure libsnout can be found under CONFIGURING.md
 #
 
 #libonnxruntime = "/usr/lib64/libonnxruntime.so"
