@@ -1,4 +1,4 @@
-## Configuring 
+# Configuring 
 
 
 [Configuration file location](#configuration-file-location)
@@ -24,7 +24,7 @@
 
 [Using a non-system onnxruntime](#using-a-non-system-onnxruntime)
 
-### Configuration file location
+## Configuration file location
 
 snout-cli will search for a configuration file called `config.toml` in the following locations:
 
@@ -45,7 +45,7 @@ A specific configuration file, not located in any of the above paths, can still 
 snout-cli -c ~/myconfig.toml track
 ```
 
-### Disabling specific tracking points
+## Disabling specific tracking points
 
 Tracking can be disabled for specific points by setting their `camera` value to an empty string. Like so:
 
@@ -68,7 +68,7 @@ camera = "http://192.168.178.162"
 
 The above example will disable both of the eye cameras, leaving only the face camera active.
 
-### Finding your camera
+## Finding your camera
 
 The names of connected usb cameras can be found like so: 
 
@@ -90,7 +90,7 @@ Wireless mjpeg cameras can be entered as a url, like so:
 camera = "http://192.168.178.162"
 ``` 
 
-### Rotating, flipping, and changing a cameras brightness
+## Rotating, flipping, and changing a cameras brightness
 
 Changing the values for rotation and brightness, along with on wether or not the camera is flipped horizontally and vertically can be achieved through the `<Tracking Point>.transform` nodes. 
 
@@ -108,7 +108,7 @@ The brightness value is given as a percentage, where 1 is 100% (Original) bright
 
 The value for rotation is given in whole degrees. Realistically you should only need 90, 180, and 270.
 
-### Cropping a camera
+## Cropping a camera
 
 Cropping a camera stream can be done through editing the values of the `<Tracking point>.crop` nodes. For the face, this can be done like so
 
@@ -134,7 +134,7 @@ The camera stream will always be cropped into a square; so on a 16:9 image the s
 It was designed this way to prevent users from squishing their face, since the model always wants a 240x240 pixel input and the image pipeline just squishes the cropped image to fit that, squishing your face if you don't have a perfectly square crop.
 
 
-### Using with VRCFT or oscavmgr
+## Using with VRCFT or oscavmgr
 
 The osc endpoint that tracking data gets sent to will need to be adjusted to be used with VRCFT.
 The following configuration will work with VRCFT.avalonia:
@@ -151,7 +151,7 @@ The default endpoint if none is supplied in the config, already works with oscav
 destination = "127.0.0.1:9400"
 ``` 
 
-### Using with VRC native Eye Tracking
+## Using with VRC native Eye Tracking
 
 VRC offers a native eye tracking solution over osc that doesnt require a bridge like VRCFT or OscAvMgr, and works with any avatar.
 
@@ -166,7 +166,7 @@ max_yaw = 30.0 # Optional
 
 if VRChat was set to use a different port than default for recieving OSC messages, changing the destination port is also required.
 
-### Face calibration
+## Face calibration
 
 Face calibration can be done by adjusting the upper and lower bounds of the different `[[face.calibration]]` tables in the configuration file, like so:
 
@@ -179,7 +179,7 @@ upper = 0.6
 
 The full list of shapes can be found in the template configuration file.
 
-### Filter Settings
+## Filter Settings
 
 Filter settings for the eye and face tracking pipelines can be changed by adjusting the values of the `[eye.filter]` and `[face.filter]` tables in the configuration file, like so:
 
@@ -197,7 +197,7 @@ min_cutoff = 0.5
 beta = 3.0
 ```
 
-### Note on onnx model paths
+## Note on onnx model paths
 
 The paths to the face and eye tracking onnx models are relative to the directory of the config file. An absolute path may be preferred and can be set by prefixing the path with a `/` like so:
 
@@ -209,7 +209,7 @@ The paths to the face and eye tracking onnx models are relative to the directory
 model = "/home/user/libsnout/faceModel.onnx" 
 ``` 
 
-### Using a non-system onnxruntime
+## Using a non-system onnxruntime
 
 A libonnxruntime library file can be supplied in the configuration file through the `libonnxruntime` key, like so:
 
