@@ -14,6 +14,8 @@ listen = "127.0.0.1:9500"
 
 ## `snout-remote` usage
 
+The `<shape>` arguments are case sensitive, a list of all shapes can be found [below](#available-face-shapes)
+
 ### Setting face bounds
 
 To set the bounds of a face shape, run the following command:
@@ -21,8 +23,6 @@ To set the bounds of a face shape, run the following command:
 ```sh
 snout-remote face-bounds <shape> <lower> <upper>
 ```
-
-The name of the `<shape>` is case sensitive, a list of all shapes can be found [below](#available-face-shapes)
 
 An example for setting the bounds of a shape can be found below.
 
