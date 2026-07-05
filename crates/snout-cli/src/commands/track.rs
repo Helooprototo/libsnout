@@ -10,7 +10,7 @@ use std::{
 use indicatif::MultiProgress;
 use snout::{
     calibration::{EyeShape, FaceShape},
-    capture::discovery::{query_cameras, CameraInfo},
+    capture::discovery::{CameraInfo, query_cameras},
     config::Config,
     control::{ControlEvent, OscControl},
     track::{eye::EyeTracker, face::FaceTracker, initialize_runtime, output::Output},
@@ -24,6 +24,7 @@ const IDLE_RETRY: Duration = Duration::from_millis(10);
 enum FaceEvent {
     Bounds(FaceShape, f32, f32),
     Calibrate,
+    CalibrateUpper(FaceShape, u32),
 }
 
 pub struct TrackCommand {
@@ -56,7 +57,12 @@ impl TrackCommand {
     }
 
     /// Face tracking worker: owns its tracker, output, and status line.
-    fn run_face(&self, cameras: &[CameraInfo], multi: &MultiProgress, control: Receiver<FaceEvent>) {
+    fn run_face(
+        &self,
+        cameras: &[CameraInfo],
+        multi: &MultiProgress,
+        control: Receiver<FaceEvent>,
+    ) {
         let mut tracker = FaceTracker::with_config(cameras, &self.config).unwrap();
         let mut output = Output::with_config(&self.config).unwrap();
 
@@ -73,6 +79,11 @@ impl TrackCommand {
                     }
                     FaceEvent::Calibrate => {
                         tracker.calibrator.start_calibration();
+                    }
+                    FaceEvent::CalibrateUpper(shape, frames) => {
+                        tracker
+                            .calibrator
+                            .start_upper_calibration(shape, frames as usize);
                     }
                 }
             }
@@ -192,6 +203,9 @@ fn run_control(listen: String, face: Sender<FaceEvent>) {
         let face_event = match event {
             ControlEvent::FaceBounds(shape, lower, upper) => FaceEvent::Bounds(shape, lower, upper),
             ControlEvent::FaceCalibrate => FaceEvent::Calibrate,
+            ControlEvent::FaceCalibrateUpper(shape, frames) => {
+                FaceEvent::CalibrateUpper(shape, frames)
+            }
         };
 
         if face.send(face_event).is_err() {
@@ -225,6 +239,12 @@ impl Gaze {
 
 impl StatusBarItem for Gaze {
     fn render(&self) -> Cow<'static, str> {
-        format!("{}({:+.2},{:+.2})", self.side, self.pitch.get(), self.yaw.get()).into()
+        format!(
+            "{}({:+.2},{:+.2})",
+            self.side,
+            self.pitch.get(),
+            self.yaw.get()
+        )
+        .into()
     }
 }

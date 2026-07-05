@@ -46,6 +46,18 @@ You can add the `-v` flag when launching `snout-cli` to see the set bounds and a
 snout-remote face-calibrate
 ```
 
+### Face calibrate upper bound
+
+You can calibrate the upper bound of a face shape using the `face-calibrate-upper` command.
+Optionally you can override the amount of frames used for calibration, using the `--frames <n>` flag.
+
+```sh
+snout-remote face-calibrate-upper <shape> [--frames <n>]
+```
+
+This will capture N frames (default 100) and use them to determine the upper bound of the face shape.
+Try and keep the maximum of the particular shape you're trying to calibrate.
+
 ## API
 
 ### Set face bounds
