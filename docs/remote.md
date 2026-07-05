@@ -1,7 +1,7 @@
 # Remote
 
 Snout supports a remote control interface using OSC, allowing you to control various features of the application remotely.
-A binary (`snout-remote`) is provided that can be used to control Snout. Although any application that can send OSC messages will do.
+A binary (`snout-remote`) is provided that can be used to control Snout. Although any application that can send OSC messages will be able to do the same.
 
 ## Configuration
 
