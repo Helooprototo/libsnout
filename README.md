@@ -92,7 +92,7 @@ environment.systemPackages = with pkgs; [
 
 ## Tracking
 
-**Before being able to use Libsnout for face/eye tracking and training models, one ***must*** configure it. See [CONFIGURING.md](CONFIGURING.md) for information on how to do so.**
+**Before being able to use Libsnout for face/eye tracking and training models, one ***must*** configure it. See [configuring.md](docs/configuring.md) for information on how to do so.**
 
 Libsnout comes with a working face tracking model. It's the same as in the baballonia repository, but ran through `onnxsim`.
 
