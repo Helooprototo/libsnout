@@ -16,6 +16,8 @@ It's designed to be a library; easy to integrate in a variety of frontend projec
     - [Troubleshooting](#troubleshooting)
 - Remote Control:
     - See [remote.md](docs/remote.md)
+- Contributing:
+    - See [contributors.md](docs/contributors.md)
 
 ## Required dependencies
 
