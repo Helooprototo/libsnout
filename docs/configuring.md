@@ -181,7 +181,9 @@ if VRChat was set to use a different port than default for recieving OSC message
 
 ## Face calibration
 
-Face calibration can be done by adjusting the upper and lower bounds of the different `[[face.calibration]]` tables in the configuration file, like so:
+Face calibration can be achieved through using the `snout-remote` utility to automatically set upper and lower bounds for different shapes, see [remote.md](remote.md) for [lower](remote.md#face-auto-calibration) and [upper](remote.md#face-calibrate-upper-bound) bound calibration.
+
+Alternatively, face calibration can also be done manually by adjusting the upper and lower bounds of the different `[[face.calibration]]` tables in the configuration file, like so:
 
 ```toml
 [[face.calibration]]
@@ -189,8 +191,6 @@ shape = "CheekPuffLeft"
 lower = 0.3
 upper = 0.6
 ```
-
-The full list of shapes can be found in the template configuration file.
 
 ## Filter Settings
 
