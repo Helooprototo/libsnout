@@ -76,6 +76,15 @@ Start the auto calibration process for the face.
 /snout/face/calibrate
 ```
 
+
+#### Start face upper calibration
+
+Start the upper calibration process for the face.
+
+```
+/snout/face/calibrate/upper <shape> <frames>
+```
+
 ## Available face shapes
 
 - cheekPuffLeft
