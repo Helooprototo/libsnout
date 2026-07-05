@@ -20,7 +20,9 @@
 
 [Filter Settings](#filter-settings)
 
-[Note on onnx model paths](#note-on-onnx-model-paths)
+[Sampling overlay](#sampling-overlay)
+
+[Note on paths inside the configuration file](#note-on-paths-inside-the-configuration-file)
 
 [Using a non-system onnxruntime](#using-a-non-system-onnxruntime)
 
@@ -198,9 +200,25 @@ min_cutoff = 0.5
 beta = 3.0
 ```
 
-## Note on onnx model paths
+## Sampling overlay
 
-The paths to the face and eye tracking onnx models are relative to the directory of the config file. An absolute path may be preferred and can be set by prefixing the path with a `/` like so:
+To start sampling data in order to train a model, libsnout uses Baballonias calibration overlay. The path to this overlay must be configured in the configuration file.
+
+This can be done through the `[sample.overlay]` table, like so:
+
+```toml
+[sample.overlay]
+path = "/PathToBabbalonia/BabbleCalibration.x86_64"
+mode = "OpenXr"
+```
+
+The overlay can be found under `<Installation location>/Calibration/Linux/Overlay/BabbleCalibration.x86_64`.
+
+On a steam install of Baballonia, locating its installation folder can be done through right clicking the software in steam, and selecting "Manage" -> "Browse local files".
+
+## Note on paths inside the configuration file
+
+Paths are relative to the directory of the config file. An absolute path may be preferred and can be set by prefixing the path with a `/` like so:
 
 ```toml
 [face]
