@@ -3,6 +3,8 @@
 
 [Configuration file location](#configuration-file-location)
 
+[Note on paths inside the configuration file](#note-on-paths-inside-the-configuration-file)
+
 [Disabling specific tracking points](#disabling-specific-tracking-points)
 
 [Finding your camera](#finding-your-camera)
@@ -22,8 +24,6 @@
 
 [Sampling overlay](#sampling-overlay)
 
-[Note on paths inside the configuration file](#note-on-paths-inside-the-configuration-file)
-
 [Using a non-system onnxruntime](#using-a-non-system-onnxruntime)
 
 ## Configuration file location
@@ -39,13 +39,23 @@ A template configuration file can be found in this repo.
 
 Make sure to edit it to suit your needs.
 
-Relative paths referenced in the configuration file, will be relative to the location of the configuration file.
-
 A specific configuration file, not located in any of the above paths, can still be used by specifying it through the `-c` flag when running snout-cli. Like so:
 
 ```sh
 snout-cli -c ~/myconfig.toml track
 ```
+
+## Note on paths inside the configuration file
+
+Paths are relative to the directory of the configuration file. An absolute path may be preferred and can be set by prefixing the path with a `/`, like so:
+
+```toml
+[face]
+
+# <...>
+
+model = "/home/user/libsnout/faceModel.onnx" 
+``` 
 
 ## Disabling specific tracking points
 
@@ -215,18 +225,6 @@ mode = "OpenXr"
 The overlay can be found under `<Installation location>/Calibration/Linux/Overlay/BabbleCalibration.x86_64`.
 
 On a steam install of Baballonia, locating its installation folder can be done through right clicking the software in steam, and selecting "Manage" -> "Browse local files".
-
-## Note on paths inside the configuration file
-
-Paths are relative to the directory of the config file. An absolute path may be preferred and can be set by prefixing the path with a `/` like so:
-
-```toml
-[face]
-
-# <...>
-
-model = "/home/user/libsnout/faceModel.onnx" 
-``` 
 
 ## Using a non-system onnxruntime
 

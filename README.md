@@ -7,7 +7,7 @@ It's designed to be a library; easy to integrate in a variety of frontend projec
     - [Building and running the cli](#building-and-running-the-cli)
     - [Installing on NixOS](#installing-on-nixos)
 - Configuring:
-    - See [CONFIGURING.md](docs/configuring.md)
+    - See [configuring.md](docs/configuring.md)
 - Usage:
     - [Tracking](#tracking)
     - [Training an eye model](#training-an-eye-model)
@@ -15,7 +15,7 @@ It's designed to be a library; easy to integrate in a variety of frontend projec
         - [Training the model](#training-a-model)
     - [Troubleshooting](#troubleshooting)
 - Remote Control:
-    - See [REMOTE.MD](docs/remote.md)
+    - See [remote.md](docs/remote.md)
 
 ## Required dependencies
 
@@ -30,6 +30,7 @@ Libsnout requires the following build dependencies (in the form of fedora packag
 ## Building and running the CLI
 
 Clone the repository,
+
 ```sh
 git clone https://github.com/Darksecond/libsnout.git
 ```
