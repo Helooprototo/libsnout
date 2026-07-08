@@ -1,5 +1,4 @@
-# Configuring 
-
+# Configuring
 
 [Configuration file location](#configuration-file-location)
 
@@ -9,9 +8,10 @@
 
 [Finding your camera](#finding-your-camera)
 
-[Rotating, flipping, and changing a cameras brightness](#rotating-flipping-and-changing-a-cameras-brightness)
+[Rotating, mirroring, and changing a cameras brightness](#rotating-mirroring-and-changing-a-cameras-brightness)
 
 [Cropping a camera](#cropping-a-camera)
+
 - [Notes on cropping](#notes-on-cropping)
 
 [Using with VRCFT or oscavmgr](#using-with-vrcft-or-oscavmgr)
@@ -55,13 +55,13 @@ Paths are relative to the directory of the configuration file. An absolute path 
 # <...>
 
 model = "/home/user/libsnout/faceModel.onnx" 
-``` 
+```
 
 ## Disabling specific tracking points
 
 Tracking can be disabled for specific points by setting their `camera` value to an empty string. Like so:
 
-```toml 
+```toml
 [eye.right]
 camera = ""
 
@@ -76,7 +76,7 @@ camera = ""
 camera = "http://192.168.178.162"
 
 # <...> 
-``` 
+```
 
 The above example will disable both of the eye cameras, leaving only the face camera active.
 
@@ -84,25 +84,25 @@ If only one eye camera is active, the active eye will be duplicated onto both ey
 
 ## Finding your camera
 
-The names of connected usb cameras can be found like so: 
+The names of connected usb cameras can be found like so:
 
 ```sh
 snout-cli list-cameras
-``` 
+```
 
 Once you have located your desired camera in the outputted list, use the full name of the camera in the configuration file.
 
 ```toml
 [eye.right]
 camera = "Bigeye: Bigeye (800x400 @ 90fps)"
-``` 
+```
 
 Wireless mjpeg cameras can be entered as a url, like so:
 
 ```toml
 [eye.right]
 camera = "http://192.168.178.162"
-``` 
+```
 
 ## Rotating, mirroring, and changing a cameras brightness
 
@@ -139,7 +139,7 @@ Before trying to crop your camera, make sure to read the [notes on cropping](#no
 ### Notes on cropping
 
 cropping the image works slightly differently; instead of providing top/left/right/bottom coordinates it uses major/minor shift and scale.
-Scale 1 is 100%, increase it to zoom in (1.5 would be 150%). 
+Scale 1 is 100%, increase it to zoom in (1.5 would be 150%).
 Major shift and minor shift range from -1 to 1.
 
 Major shift shifts along the longest axis, minor shift shifts along the shortest axis. Minor shift only does something when zoomed in, if your input is a square then both will only function when zoomed in.
@@ -147,7 +147,6 @@ Major shift shifts along the longest axis, minor shift shifts along the shortest
 The camera stream will always be cropped into a square; so on a 16:9 image the sides are trimmed off along the longest axis, and Major shift will then allow you to shift the crop left or right. If you then zoom in on the cropped image, minor shift will allow you to shift the crop up or down.
 
 It was designed this way to prevent users from squishing their face, since the model always wants a 240x240 pixel input and the image pipeline just squishes the cropped image to fit that, squishing your face if you don't have a perfectly square crop.
-
 
 ## Using with VRCFT or oscavmgr
 
@@ -157,14 +156,14 @@ The following configuration will work with VRCFT.avalonia:
 ```toml
 [output.osc] 
 destination = "127.0.0.1:8888"
-``` 
+```
 
 The default endpoint if none is supplied in the config, already works with oscavmgr. But can be set manually, like so:
 
 ```toml
 [output.osc] 
 destination = "127.0.0.1:9400"
-``` 
+```
 
 ## Using with VRC native Eye Tracking
 
@@ -242,4 +241,3 @@ This can be useful if
 `snout-cli` crashes on exit due to an outdated system onnxruntime.
 
 Precompiled releases for onnxruntime can be found on [its github](https://github.com/microsoft/onnxruntime/releases)
-

@@ -8,7 +8,7 @@ This can either be installed from your package manager. Or from cargo:
 ```sh
 cargo install --force cbindgen
 export PATH=$PATH:$HOME/.cargo/bin
-``` 
+```
 
 Once cbindgen is installed and located on your PATH, `snout.h` can be generated via:
 

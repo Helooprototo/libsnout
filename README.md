@@ -4,20 +4,20 @@ This is a rust implementation of Project Babble's baballonia face tracking sofwa
 It's designed to be a library; easy to integrate in a variety of frontend projects. However it can also be used as a CLI application through snout-cli.
 
 - Building:
-    - [Building and running the cli](#building-and-running-the-cli)
-    - [Installing on NixOS](#installing-on-nixos)
+  - [Building and running the cli](#building-and-running-the-cli)
+  - [Installing on NixOS](#installing-on-nixos)
 - Configuring:
-    - See [configuring.md](docs/configuring.md)
+  - See [configuring.md](docs/configuring.md)
 - Usage:
-    - [Tracking](#tracking)
-    - [Training an eye model](#training-an-eye-model)
-        - [Sampling data](#sampling-training-data)
-        - [Training the model](#training-a-model)
-    - [Troubleshooting](#troubleshooting)
+  - [Tracking](#tracking)
+  - [Training an eye model](#training-an-eye-model)
+    - [Sampling data](#sampling-training-data)
+    - [Training the model](#training-the-model)
+  - [Troubleshooting](#troubleshooting)
 - Remote Control:
-    - See [remote.md](docs/remote.md)
+  - See [remote.md](docs/remote.md)
 - Contributing:
-    - See [contributors.md](docs/contributors.md)
+  - See [contributors.md](docs/contributors.md)
 
 ## Required dependencies
 
@@ -64,7 +64,7 @@ Help on how to use the cli tool can be obtained with:
 
 ```sh
 snout-cli help
-``` 
+```
 
 ### Installing on NixOS
 
@@ -92,7 +92,8 @@ environment.systemPackages = with pkgs; [
 
 ## Tracking
 
-**Before being able to use Libsnout for face/eye tracking and training models, one ***must*** configure it. See [configuring.md](docs/configuring.md) for information on how to do so.**
+> [!IMPORTANT]
+> Before being able to use Libsnout for face/eye tracking and training models, one must configure it. See [configuring.md](docs/configuring.md) for information on how to do so.
 
 Libsnout comes with a working face tracking model. It's the same as in the baballonia repository, but ran through `onnxsim`.
 
@@ -100,7 +101,7 @@ Once you have set up your configuration file to point to your cameras, and set t
 
 ```sh
 snout-cli track
-``` 
+```
 
 This will start recording, along with sending data to the OSC endpoint specified in the configuration file.
 
@@ -125,7 +126,7 @@ Eye models can be trained with the following command:
 
 ```sh
 snout-cli train <capture> <output.onnx>
-``` 
+```
 
 The `<capture>` argument can be either the directory of .bin files created by the previous sampling step, or a singular .bin file.
 The resulting eye tracking model will be written to the `<output.onnx>` file.
@@ -136,7 +137,7 @@ A camera frame can be captured and written to a file with the following command 
 
 ```sh
 snout-cli capture <SOURCE> <OUTPUT.jpeg>
-``` 
+```
 
 `<SOURCE>` can be any of the following camera sources `left-eye`, `right-eye`, `face`,
 

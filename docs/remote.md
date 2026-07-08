@@ -14,7 +14,8 @@ listen = "127.0.0.1:9500"
 
 ## `snout-remote` usage
 
-The `<shape>` arguments are case sensitive, a list of all shapes can be found [below](#available-face-shapes)
+> [!NOTE]
+> The `<shape>` arguments are case sensitive, a list of all shapes can be found [below](#available-face-shapes)
 
 ### Setting face bounds
 
@@ -29,7 +30,6 @@ An example for setting the bounds of a shape can be found below.
 ```sh
 snout-remote face-bounds "MouthLeft" 0.4 1.0
 ```
-
 
 ### Face auto calibration
 
@@ -64,7 +64,7 @@ Try and keep the maximum of the particular shape you're trying to calibrate.
 
 Set the bounds of the face.
 
-```
+```osc
 /snout/face/bounds <shape> <lower> <upper>
 ```
 
@@ -72,16 +72,15 @@ Set the bounds of the face.
 
 Start the auto calibration process for the face.
 
-```
+```osc
 /snout/face/calibrate
 ```
-
 
 #### Start face upper calibration
 
 Start the upper calibration process for the face.
 
-```
+```osc
 /snout/face/calibrate/upper <shape> <frames>
 ```
 
