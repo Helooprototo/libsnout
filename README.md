@@ -21,7 +21,7 @@ It's designed to be a library; easy to integrate in a variety of frontend projec
 
 ## Required dependencies
 
-Libsnout requires the following build dependencies (in the form of fedora package names):
+Snout requires the following build dependencies (in the form of fedora package names):
 
 - llvm
 - llvm-devel
@@ -68,7 +68,7 @@ snout-cli help
 
 ### Installing on NixOS
 
-Add libsnout to your flake.nix inputs:
+Add Snout to your flake.nix inputs:
 
 ```nix
   libsnout.url = "github:Darksecond/libsnout";
@@ -93,9 +93,9 @@ environment.systemPackages = with pkgs; [
 ## Tracking
 
 > [!IMPORTANT]
-> Before being able to use Libsnout for face/eye tracking and training models, one must configure it. See [configuring.md](docs/configuring.md) for information on how to do so.
+> Before being able to use Snout for face/eye tracking and training models, one must configure it. See [configuring.md](docs/configuring.md) for information on how to do so.
 
-Libsnout comes with a working face tracking model. It's the same as in the baballonia repository, but ran through `onnxsim`.
+Snout comes with a working face tracking model. It's the same as in the baballonia repository, but ran through `onnxsim`.
 Make sure to download it from this repository and reference it in your configuration file if you plan to use face tracking.
 
 Once you have set up your configuration file to point to your cameras, and set the output OSC destination to the correct values for your program of choice. You can start tracking with the following command:

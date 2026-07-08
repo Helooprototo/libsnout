@@ -217,7 +217,7 @@ beta = 3.0
 
 ## Sampling overlay
 
-To start sampling data in order to train a model, libsnout uses Baballonias calibration overlay. The path to this overlay must be configured in the configuration file.
+To start sampling data in order to train a model, Snout uses Baballonias calibration overlay. The path to this overlay must be configured in the configuration file.
 
 This can be done through the `[sample.overlay]` table, like so:
 
