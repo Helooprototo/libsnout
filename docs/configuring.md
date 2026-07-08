@@ -24,6 +24,8 @@
 
 [Sampling overlay](#sampling-overlay)
 
+[Remote control](#remote-control)
+
 [Using a non-system onnxruntime](#using-a-non-system-onnxruntime)
 
 ## Configuration file location
