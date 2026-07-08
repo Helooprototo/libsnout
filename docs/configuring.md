@@ -80,6 +80,8 @@ camera = "http://192.168.178.162"
 
 The above example will disable both of the eye cameras, leaving only the face camera active.
 
+If only one eye camera is active, the active eye will be duplicated onto both eyes.
+
 ## Finding your camera
 
 The names of connected usb cameras can be found like so: 
