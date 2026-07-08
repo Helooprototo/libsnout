@@ -96,6 +96,7 @@ environment.systemPackages = with pkgs; [
 > Before being able to use Libsnout for face/eye tracking and training models, one must configure it. See [configuring.md](docs/configuring.md) for information on how to do so.
 
 Libsnout comes with a working face tracking model. It's the same as in the baballonia repository, but ran through `onnxsim`.
+Make sure to download it from this repository and reference it in your configuration file if you plan to use face tracking.
 
 Once you have set up your configuration file to point to your cameras, and set the output OSC destination to the correct values for your program of choice. You can start tracking with the following command:
 
