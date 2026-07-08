@@ -109,11 +109,11 @@ This will start recording, along with sending data to the OSC endpoint specified
 
 ### Sampling training data
 
-Training data can be obtained through the `sample` command.
-The sample command will generate a directory of .bin files used during training
-
 > [!NOTE]
 > To start sampling data, the configuration file must include the path to Baballonias calibration overlay. See [CONFIGURING.md](docs/configuring.md#sampling-overlay)
+
+Training data can be obtained through the `sample` command.
+The sample command will generate a directory of .bin files used during training
 
 ```sh
 snout-cli sample -o my_training_data
