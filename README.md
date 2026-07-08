@@ -1,4 +1,4 @@
-# Libsnout
+# Snout
 
 This is a rust implementation of Project Babble's baballonia face tracking sofware.
 It's designed to be a library; easy to integrate in a variety of frontend projects. However it can also be used as a CLI application through snout-cli.
