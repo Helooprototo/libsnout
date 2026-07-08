@@ -106,6 +106,9 @@ camera = "http://192.168.178.162"
 
 ## Rotating, mirroring, and changing a cameras brightness
 
+> [!TIP]
+> One can use the [`capture`](../README.md#troubleshooting) command to check camera alignment and brightness
+
 Changing the values for rotation and brightness, along with wether or not the camera is mirrored horizontally and/or vertically, can be achieved through the `<Tracking Point>.transform` tables.
 
 For the face camera, this can be achieved like so:
@@ -115,7 +118,7 @@ For the face camera, this can be achieved like so:
 rotation = 90 #Rotate 90 degrees
 brightness = 0.66 #Dim by 33%
 vertical_flip = true # Mirrors camera vertically
-horizontal_flip = false 
+horizontal_flip = false  # Mirrors camera horizontally
 ```
 
 The brightness value is given as a percentage, where a value of 1 is 100% brightness (Original), and 0 is 0% brightness (Pitch black).
@@ -125,6 +128,9 @@ The value for rotation is given in whole degrees. Realistically you should only 
 
 ## Cropping a camera
 
+> ![Note]
+> Before trying to crop your camera, make sure to read the [notes on cropping](#notes-on-cropping) below.
+
 Cropping a camera stream can be done through editing the values of the `<Tracking point>.crop` tables. For the face, this can be done like so
 
 ```toml
@@ -133,8 +139,6 @@ scale = 1.2 #Zoom in 20%
 major_shift = 0.0
 minor_shift = 0.0
 ```
-
-Before trying to crop your camera, make sure to read the [notes on cropping](#notes-on-cropping) below.
 
 ### Notes on cropping
 
@@ -226,6 +230,10 @@ mode = "OpenXr"
 The overlay can be found under `<Installation location>/Calibration/Linux/Overlay/BabbleCalibration.x86_64`.
 
 On a steam install of Baballonia, locating its installation folder can be done through right clicking the software in steam, and selecting "Manage" -> "Browse local files".
+
+## Remote control
+
+See [Remote control](remote.md)
 
 ## Using a non-system onnxruntime
 

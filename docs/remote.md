@@ -5,17 +5,25 @@ A binary (`snout-remote`) is provided that can be used to control Snout. Althoug
 
 ## Configuration
 
-Add the following to your `config.toml` file:
+Add the following to your config file, and set the listening address to the address that your controller program is sending OSC messages to.
 
 ```toml
 [control]
 listen = "127.0.0.1:9500"
 ```
 
+The [snout-remote](remote.md) utility sends osc messages to `127.0.0.1:9500` by default.
+
 ## `snout-remote` usage
 
 > [!NOTE]
 > The `<shape>` arguments are case sensitive, a list of all shapes can be found [below](#available-face-shapes)
+
+`snout-remote` sends osc messages to `127.0.0.1:9500` by default, but can be set to use a different address through the `-t` flag, like so:
+
+```sh
+snout-remote -t 127.0.0.1:9004 <...>
+```
 
 ### Setting face bounds
 
@@ -33,14 +41,14 @@ snout-remote face-bounds "MouthLeft" 0.4 1.0
 
 ### Face auto calibration
 
+> ![NOTE]
+> Bounds set through the auto calibration process are *not* saved persistently.
+> Adding the `-v` flag when launching `snout-cli` will let you see the set bounds and manually apply them permanently in the configuration file.
+
 You can auto calibrate the lower bounds of all face shapes using the `face-calibrate` command.
 This will take a 100 frames worth of data (about 3 seconds at 30fps) and use it to determine the lower bounds of the face shapes.
 
 Make sure to keep a neutral face through the calibration cycle.
-
-Bounds set through the auto calibration process are *not* saved persistently.
-
-You can add the `-v` flag when launching `snout-cli` to see the set bounds and apply them permanently in the configuration file.
 
 ```sh
 snout-remote face-calibrate
@@ -62,7 +70,7 @@ Try and keep the maximum of the particular shape you're trying to calibrate.
 
 ### Set face bounds
 
-Set the bounds of the face.
+Set the bounds of a face shape.
 
 ```osc
 /snout/face/bounds <shape> <lower> <upper>
